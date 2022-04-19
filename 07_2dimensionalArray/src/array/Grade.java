@@ -29,14 +29,14 @@ public class Grade {
 		
 		System.out.println(" ___________________________________________________________ ");
 		System.out.println("|                                                            |");
-		System.out.println("| 이름\t\t국어\t영어\t수학\t총점\t평균\t학점 |");
+		System.out.println("| 이름\t\t국어\t영어\t수학\t총점\t 평균\t학점 |");
 		System.out.println("|------------------------------------------------------------|");
 		for(int i=0; i<score.length; i++) {
 			System.out.print("| "+ name[i] + "\t");
 			for(int j=0; j<score[0].length; j++) {
-				System.out.print(score[i][j] + "\t");
+				System.out.printf("%3d\t", score[i][j]);
 			}
-			System.out.println(String.format("%.2f", avg[i]) + "\t" + grade[i] + "    |");
+			System.out.println(String.format("%.2f", avg[i]) + "\t" + String.format("%3c", grade[i]) + "  |");
 		}
 		System.out.println("|____________________________________________________________|");
 		
