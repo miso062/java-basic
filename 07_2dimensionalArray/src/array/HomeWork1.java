@@ -57,8 +57,8 @@ public class HomeWork1 {
 		
 		return randNum;
 	}
-//	BaseBall
-	
+
+//	BaseBall Game
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
