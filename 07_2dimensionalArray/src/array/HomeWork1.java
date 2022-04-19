@@ -87,7 +87,7 @@ public class HomeWork1 {
 					userNum = hw.getUserNum(scan.next());
 					
 					if(hw.checkStrike(randNum, userNum) == 3) {
-						System.out.println("축하합니다." + count + "번 만에 맞추셨습니다.");
+						System.out.println("축하합니다. " + count + "번 만에 맞추셨습니다.");
 						flag = 1;
 						break;
 					}
