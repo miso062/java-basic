@@ -1,10 +1,13 @@
 package array;
 
-public class Lotto {
+import java.util.*;
+
+public class Lotto1 {
 	public static void main(String[] args) {
-		int[] lotto = new int[6];
 		
-//		Generate Lotto Number 
+		int[] lotto = new int[6];
+	
+//		Generate Lotto Number 1
 		for(int i=0; i<lotto.length; i++) {
 			int rand = (int)(Math.random()*45)+1;
 			if(i>0) {
@@ -20,7 +23,19 @@ public class Lotto {
 				lotto[i] = rand;
 		}
 		
-//		Sort Lotto Number
+
+//		Generate Lotto Number 2
+		for(int i=0; i<lotto.length; i++) {
+			lotto[i] = (int)(Math.random()*45)+1;
+			for(int j=0; j<i; j++) {
+				if(lotto[j] == lotto[i]) {
+					i--;
+					break;
+				}
+			}
+		}
+		
+//		Sort Lotto Number 1
 		for(int i=0; i<lotto.length; i++) {
 			for(int j=i; j<lotto.length; j++) {
 				if(lotto[i] > lotto[j]) {
@@ -31,10 +46,16 @@ public class Lotto {
 			}
 		}
 		
+				
+//		Sort Lotto Number 2 - Use Method
+		Arrays.sort(lotto);
+		
 //		Print Lotto Number
-		System.out.print("로또 번호: ");
 		for(int num: lotto) {
-			System.out.print(num + " ");
+			System.out.printf("%2d ", num);
 		}
+		System.out.println();
+
 	}
 }
+
