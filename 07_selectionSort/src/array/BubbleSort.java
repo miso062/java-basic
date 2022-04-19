@@ -10,13 +10,13 @@ public class BubbleSort {
 		}
 		System.out.println();
 		
-		for(int i=0; i<ar.length; i++) {
-			for(int j=i; j<ar.length; j++) {
-//				System.out.println(i + " " + j);
-				if(ar[i] > ar[j]) {
-					int temp = ar[i];
-					ar[i] = ar[j];
-					ar[j] = temp;
+		for(int i=0; i<ar.length-1; i++) {
+			for(int j=0; j<ar.length-1-i; j++) {
+//				System.out.println(j+ " " + (j+1));
+				if(ar[j] > ar[j+1]) {
+					int temp = ar[j];
+					ar[j] = ar[j+1];
+					ar[j+1] = temp;
 				}
 			}
 			System.out.print("중간 결과 " + (i+1) + ": ");
