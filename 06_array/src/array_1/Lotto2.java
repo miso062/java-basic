@@ -1,9 +1,11 @@
 package array_1;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays;
 
 public class Lotto2 {
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		
 		int[] lotto = new int[6];
