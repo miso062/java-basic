@@ -1,4 +1,4 @@
-package array;
+package array_2;
 
 public class MultiArray1 {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package array;
+package array_2;
 
 import java.io.IOException;
 import java.util.Scanner;
