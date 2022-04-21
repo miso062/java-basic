@@ -61,9 +61,8 @@ class C extends B{
 	private int[] gradeNum = new int[5];
 	
 	public void initialTask() {
-		B b = new B();
-		
-		b.initialTask();
+	
+		super.initialTask();
 		countUnderAvg();
 		printCount();
 	}
