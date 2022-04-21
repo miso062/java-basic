@@ -10,22 +10,22 @@ class A{
 	public void enterScore() {
 		Scanner scan = new Scanner(System.in);
 		
-		for(int i=0; i<this.score.length; i++) {
+		for(int i=0; i<score.length; i++) {
 			System.out.print((i+1) + "번의 성적을 입력하세요: ");
-			this.score[i] = scan.nextInt();
+			score[i] = scan.nextInt();
 		}
 		
 		scan.close();
 	}
 	
 	public void calSum() {
-		for(int i=0; i<this.score.length; i++) {
-			sum += this.score[i];
+		for(int i=0; i<score.length; i++) {
+			sum += score[i];
 		}
 	}
 	
 	public void calAvg() {
-		avg = (double)sum/this.score.length;
+		avg = (double)sum/score.length;
 	}
 	
 	public void printSumAvg() {
@@ -44,8 +44,8 @@ class B extends A{
 	
 	public void countUnderAvg() {
 		
-		for(int i=0; i<this.score.length; i++) {
-			if(score[i] < this.avg) {
+		for(int i=0; i<score.length; i++) {
+			if(score[i] < avg) {
 				count++;
 			}
 		}
@@ -76,13 +76,13 @@ class C extends B{
 	}
 	
 	public void countGrade() {
-		for(int i=0; i<this.score.length; i++) {
+		for(int i=0; i<score.length; i++) {
 			gradeNum[calGrade(score[i])]++;
 		}
 	}
 	
 	public void drawGraph() {
-		for(int i=0; i<this.gradeNum.length; i++) {
+		for(int i=0; i<gradeNum.length; i++) {
 			if(i == 4) {
 				System.out.print((char)(i+'A'+1) + "(" + gradeNum[i] + "명) | ");
 			}
