@@ -28,7 +28,9 @@ public class Grade2 {
 			name[i] = scan.next();
 			
 			System.out.print("과목수 입력: ");
-			subject_num[i] =scan.nextInt(); 
+//			굳이 배열로 할 필요없다
+//				∵ 이차원 가변 배열의 길이로 지정하고 배열의 길이를 불러서 사용하면 됨. 
+			subject_num[i] =scan.nextInt();
 			
 			subject[i] = new String[subject_num[i]];
 			score[i] = new int[subject_num[i]];
