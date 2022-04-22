@@ -41,5 +41,12 @@ public class MemberDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	public void setMember(String name, String phone, String address, int age) {
+		setName(name);
+		setPhone(phone);
+		setAddress(address);
+		setAge(age);
+	}
 
 }
