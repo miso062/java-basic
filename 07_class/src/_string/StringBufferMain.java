@@ -6,9 +6,11 @@ public class StringBufferMain {
 	
 	public int input() {
 		
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.print("원하는 단을 입력: ");
 		return scan.nextInt();
+		
 	}
 	
 	public void output() {

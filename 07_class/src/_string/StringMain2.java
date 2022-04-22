@@ -36,5 +36,7 @@ public class StringMain2 {
 			System.out.println(str);
 			System.out.println(count + "번 치환");
 		}
+		
+		scan.close();
 	}
 }
