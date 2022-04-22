@@ -1,0 +1,153 @@
+package _collection;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SungJukService{
+	
+	private ArrayList<SungJukDTO> list; // 이 문장을 고치지 말것
+	
+	public void menu() {
+		Scanner scan = new Scanner(System.in);
+		int num; 
+		
+		list = new ArrayList<SungJukDTO>();
+		
+		while(true) {
+			System.out.println("");
+			System.out.println("****************************");
+			System.out.println("*      1. 입력             *");
+			System.out.println("*      2. 출력             *");
+			System.out.println("*      3. 검색             *");
+			System.out.println("*      4. 삭제             *");
+			System.out.println("*      5. 종료             *");
+			System.out.println("****************************");
+			System.out.print("     - 번호 선택: ");
+			num = scan.nextInt();
+			
+			System.out.println();
+			
+			if(num==5) break;
+			else if(num==1) {
+				insertArticle();
+			}
+			else if(num==2) {
+				printArticle();
+			}
+			else if(num==3) {
+				searchArticle();
+			}
+			else if(num==4) {
+				deleteArticle();
+			}
+			else {
+				System.out.println("[1~5번 중에 입력하세요!]");
+			}
+		}
+		scan.close();
+		System.out.println(" >> 프로그램을 종료합니다.");
+		
+	}
+	
+	public void insertArticle() {
+		Scanner scan = new Scanner(System.in);
+	
+		String name;
+		int no, kor, eng, math; 
+	
+		System.out.print(" >> 번호 입력: ");
+		no = scan.nextInt();
+		for(SungJukDTO data: list) {
+			if(data.getNo()==no) {
+				System.out.println("\n[이미 있는 번호입니다!]");
+				return;
+			}
+		}
+		
+		System.out.print(" >> 이름 입력: ");
+		name = scan.next();
+		System.out.print(" >> 국어 입력: ");
+		kor = scan.nextInt();
+		System.out.print(" >> 영어 입력: ");
+		eng = scan.nextInt();
+		System.out.print(" >> 수학 입력: ");
+		math = scan.nextInt();
+		
+		
+		
+		list.add(new SungJukDTO(name, no, kor, eng, math));
+	}
+	
+	public void printArticle() {
+		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
+		for(SungJukDTO data: list) {
+			System.out.println(data.getNo() + "\t" +
+								data.getName() + "\t" +
+								data.getKor() + "\t" +
+								data.getEng() + "\t" +
+								data.getMath() + "\t" + 
+								data.getTot() + "\t" +
+								String.format("%.2f", data.getAvg()) + "\t");
+		}
+	}
+	
+	public void searchArticle() {
+		String searchName;
+		ArrayList<Integer> searchIndex = new ArrayList<Integer>();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print(" >> 검색할 이름 입력: ");
+		searchName = scan.next();
+		
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getName().equals(searchName)) {
+				searchIndex.add(i);
+			}
+		}
+		
+		if(searchIndex.isEmpty()) {
+			System.out.println("\n[찾고자 하는 이름이 없습니다.]");
+		}
+		else {
+			System.out.println("\n번호\t이름\t국어\t영어\t수학\t총점\t평균");
+			for(int i: searchIndex) {
+				System.out.println(list.get(i).getNo() + "\t" +
+						list.get(i).getName() + "\t" +
+						list.get(i).getKor() + "\t" +
+						list.get(i).getEng() + "\t" +
+						list.get(i).getMath() + "\t" + 
+						list.get(i).getTot() + "\t" +
+						String.format("%.2f", list.get(i).getAvg()) + "\t");
+			}
+		}
+	}
+	
+	public void deleteArticle() {
+		String deleteName;
+		int check=0;
+		ArrayList<Integer> deleteIndex = new ArrayList<Integer>();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("삭제할 이름 입력: ");
+		deleteName = scan.next();
+		
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getName().equals(deleteName)) {
+				deleteIndex.add(i);
+			}
+		}
+		
+		if(deleteIndex.isEmpty()) {
+			System.out.println("\n[삭제할 이름이 없습니다.]");
+		}
+		else {
+			for(int i: deleteIndex) {
+				list.remove(i-check);
+				check++;
+			}
+			System.out.println("\n[삭제되었습니다.]");
+		}
+		
+	}
+
+}
