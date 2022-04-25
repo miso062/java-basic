@@ -1,6 +1,7 @@
 package _collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class SungJukService{
@@ -17,6 +18,7 @@ public class SungJukService{
 		
 		while(true) {
 			System.out.println("");
+//			System.out.println("list = " + list);
 			System.out.println("****************************");
 			System.out.println("*      1. 입력             *");
 			System.out.println("*      2. 출력             *");
@@ -73,13 +75,15 @@ public class SungJukService{
 		int i=0;
 		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
 		for(SungJukDTO data: list) {
-			System.out.println(data.getNo() + "\t" +
-								data.getName() + "\t" +
-								data.getKor() + "\t" +
-								data.getEng() + "\t" +
-								data.getMath() + "\t" + 
-								data.getTot() + "\t" +
-								String.format("%.2f", data.getAvg()) + "\t");
+			// toString() 메소드의 오버라이딩을 활용하여 쉽게 사용가능
+			System.out.println(data);
+//			System.out.println(data.getNo() + "\t" +
+//								data.getName() + "\t" +
+//								data.getKor() + "\t" +
+//								data.getEng() + "\t" +
+//								data.getMath() + "\t" + 
+//								data.getTot() + "\t" +
+//								String.format("%.2f", data.getAvg()) + "\t");
 			i++;
 		}
 		if(i==0) {
@@ -119,32 +123,48 @@ public class SungJukService{
 		}
 	}
 	
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource" })
 	public void deleteArticle() {
-		String deleteName;
-		int check=0;
-		ArrayList<Integer> deleteIndex = new ArrayList<Integer>();
+		
+		Iterator<SungJukDTO> iter = list.iterator();
 		Scanner scan = new Scanner(System.in);
+		String delName;
 		
 		System.out.print("삭제할 이름 입력: ");
-		deleteName = scan.next();
+		delName = scan.next();
 		
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getName().equals(deleteName)) {
-				deleteIndex.add(i);
+		while(iter.hasNext()) {
+			SungJukDTO dto = iter.next();
+			if(dto.getName().equals(delName)){
+//				해당 반복자로 반환되는 마지막 요소를 현재 컬렉션에서 제거함
+				iter.remove();
 			}
 		}
 		
-		if(deleteIndex.isEmpty()) {
-			System.out.println("\n[삭제할 이름이 없습니다.]");
-		}
-		else {
-			for(int i: deleteIndex) {
-				list.remove(i-check);
-				check++;
-			}
-			System.out.println("\n[삭제되었습니다.]");
-		}
+//		String deleteName;
+//		int check=0;
+//		ArrayList<Integer> deleteIndex = new ArrayList<Integer>();
+//		Scanner scan = new Scanner(System.in);
+//		
+//		System.out.print("삭제할 이름 입력: ");
+//		deleteName = scan.next();
+//		
+//		for(int i=0; i<list.size(); i++) {
+//			if(list.get(i).getName().equals(deleteName)) {
+//				deleteIndex.add(i);
+//			}
+//		}
+//		
+//		if(deleteIndex.isEmpty()) {
+//			System.out.println("\n[삭제할 이름이 없습니다.]");
+//		}
+//		else {
+//			for(int i: deleteIndex) {
+//				list.remove(i-check);
+//				check++;
+//			}
+//			System.out.println("\n[삭제되었습니다.]");
+//		}
 		
 	}
 
