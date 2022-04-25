@@ -5,13 +5,15 @@ import java.util.Scanner;
 
 public class SungJukService{
 	
-	private ArrayList<SungJukDTO> list; // 이 문장을 고치지 말것
+	private ArrayList<SungJukDTO> list; // 이 문장을 고치지 말것 -> 생성자로 new!
+	
+	public SungJukService() {
+		list = new ArrayList<SungJukDTO>();
+	}
 	
 	public void menu() {
 		Scanner scan = new Scanner(System.in);
 		int num; 
-		
-		list = new ArrayList<SungJukDTO>();
 		
 		while(true) {
 			System.out.println("");
@@ -27,29 +29,20 @@ public class SungJukService{
 			
 			System.out.println();
 			
-			if(num==5) break;
-			else if(num==1) {
-				insertArticle();
-			}
-			else if(num==2) {
-				printArticle();
-			}
-			else if(num==3) {
-				searchArticle();
-			}
-			else if(num==4) {
-				deleteArticle();
-			}
-			else {
-				System.out.println("[1~5번 중에 입력하세요!]");
-			}
+			if(num==5) 			break;
+			else if(num==1) 	insertArticle();
+			else if(num==2) 	printArticle();
+			else if(num==3) 	searchArticle();
+			else if(num==4) 	deleteArticle();
+			else 				System.out.println("[1~5번 중에 입력하세요!]");
+			
 		}
 		scan.close();
 		System.out.println(" >> 프로그램을 종료합니다.");
-		
 	}
 	
 	public void insertArticle() {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 	
 		String name;
@@ -73,12 +66,11 @@ public class SungJukService{
 		System.out.print(" >> 수학 입력: ");
 		math = scan.nextInt();
 		
-		
-		
 		list.add(new SungJukDTO(name, no, kor, eng, math));
 	}
 	
 	public void printArticle() {
+		int i=0;
 		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
 		for(SungJukDTO data: list) {
 			System.out.println(data.getNo() + "\t" +
@@ -88,9 +80,14 @@ public class SungJukService{
 								data.getMath() + "\t" + 
 								data.getTot() + "\t" +
 								String.format("%.2f", data.getAvg()) + "\t");
+			i++;
+		}
+		if(i==0) {
+			System.out.println("\n[리스트가 비어있습니다.]");
 		}
 	}
 	
+	@SuppressWarnings("resource")
 	public void searchArticle() {
 		String searchName;
 		ArrayList<Integer> searchIndex = new ArrayList<Integer>();
@@ -122,6 +119,7 @@ public class SungJukService{
 		}
 	}
 	
+	@SuppressWarnings("resource")
 	public void deleteArticle() {
 		String deleteName;
 		int check=0;

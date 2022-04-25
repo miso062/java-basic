@@ -6,7 +6,7 @@ public class StringMain2 {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		StringMain2 sm = new StringMain2();
+//		StringMain2 sm = new StringMain2();
 		
 		String str, corr, change;
 		int count=0;
