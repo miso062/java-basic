@@ -57,4 +57,11 @@ public class SungJukDTO{
 		avg = tot/3.0;
 		return avg;
 	}
+	
+	public String toString() {
+//		return name;
+		return no + "\t" + name + "\t" + 
+				kor + "\t" + eng + "\t" + math + "\t" + 
+				tot + "\t" + String.format("%.2f", avg) + "\t";
+	}
 }
