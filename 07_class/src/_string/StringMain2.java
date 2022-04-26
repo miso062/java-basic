@@ -33,11 +33,11 @@ public class StringMain2 {
 			}
 //			while(str.indexOf(corr) != -1) {
 //				str = str.replaceFirst(corr, change);
-//				
+//				count++;
 //			}
 //			
 			System.out.println();
-			System.out.println(str.replace(corr, change));
+			System.out.println(str);
 			System.out.println(count + "번 치환");
 		}
 		
