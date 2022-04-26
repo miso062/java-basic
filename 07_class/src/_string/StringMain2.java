@@ -9,7 +9,7 @@ public class StringMain2 {
 //		StringMain2 sm = new StringMain2();
 		
 		String str, corr, change;
-		int count=0;
+		int count=0, index=0;
 		
 		
 		System.out.print("문자열 입력: ");
@@ -27,13 +27,17 @@ public class StringMain2 {
 			System.out.println("치환할 수 없습니다.");
 		}
 		else {
-			while(str.indexOf(corr) != -1) {
-				str = str.replaceFirst(corr, change);
+			while((index = str.indexOf(corr, index)) != -1) {
+				index = index + corr.length();
 				count++;
 			}
-			
+//			while(str.indexOf(corr) != -1) {
+//				str = str.replaceFirst(corr, change);
+//				
+//			}
+//			
 			System.out.println();
-			System.out.println(str);
+			System.out.println(str.replace(corr, change));
 			System.out.println(count + "번 치환");
 		}
 		
