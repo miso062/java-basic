@@ -1,4 +1,4 @@
-package _class;
+package _constructor;
 
 class StaticTest{
 	private int a;
