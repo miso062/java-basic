@@ -34,6 +34,8 @@ public class TestMain2 {
 		
 		BB dd = (BB)bb;
 //		BB dd = (BB)cc; // error Casting 불가능 (다형성을 사용하지 않아서 메모리에 잡히지 않음)
+//		AA cc = new AA() -> AA로 생성했고, AA를 참조함 / 자식이 존재하는지 알 수 없음
+//		AA bb = new BB() -> BB로 생성했고, AA까지만 참조함 // 자식이 존재함.
 		dd.disp();
 		System.out.println("dd : " + dd.a + "\n");
 		
