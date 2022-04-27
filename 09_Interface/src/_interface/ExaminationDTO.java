@@ -1,9 +1,9 @@
 package _interface;
 
 public class ExaminationDTO {
-	String name, dap;
-	char[] ox;
-	int score = 0;
+	private String name, dap;
+	private char[] ox = new char[5];
+	private int score = 0;
 	
 	public ExaminationDTO(String name, String dap) {
 		this.name = name;
@@ -28,7 +28,18 @@ public class ExaminationDTO {
 	public void setDap(String dap) {
 		this.dap = dap;
 	}
-	public void setOx(String ox) {
-		this.ox = ox.toCharArray();
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public void compare() {
+		
+		for(int i=0; i<ExaminationService.ANSWER.length(); i++) {
+			if(ExaminationService.ANSWER.charAt(i) == this.dap.charAt(i)) {
+				score += 20;
+				ox[i] = 'O';
+			}
+			else ox[i] = 'X';
+		}
 	}
 }

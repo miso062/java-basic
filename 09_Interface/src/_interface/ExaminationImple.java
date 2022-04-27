@@ -26,7 +26,6 @@ public class ExaminationImple implements ExaminationService {
 			
 			if(num==3) break;
 			else if(num==2) {
-				compare();
 				printArticle();
 			}
 			else {
@@ -54,34 +53,15 @@ public class ExaminationImple implements ExaminationService {
 			studentAnswer = scan.next();
 			
 			ExaminationDTO dto = new ExaminationDTO(name, studentAnswer);
+			dto.compare();
 			list.add(dto);
 		}
 	}
-	
-	public void compare() {
-		
-		for(int i=0; i<list.size(); i++) {
-//			String ox = "";
-			StringBuffer ox= new StringBuffer("");
-			ExaminationDTO dto = list.get(i);
-			for(int j=0; j<ANSWER.length(); j++) {
-				if(ANSWER.charAt(j) == dto.getDap().charAt(j)) {
-					dto.score +=20;
-//					ox = ox+"O";
-					ox.append("O");
-				}
-				else //ox = ox+"X";
-					ox.append("x");
-			}
-//			dto.setOx(ox);
-			dto.setOx(ox.toString());
-		}
-	}
-	
+
 	public void printArticle() {
 		System.out.println("이름\t1 2 3 4 5  점수");
 		for(ExaminationDTO dto: list) {
-			System.out.print(dto.name + "\t");
+			System.out.print(dto.getName() + "\t");
 			for(char c: dto.getOx()) {
 				System.out.print(c + " ");
 			}
