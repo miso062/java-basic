@@ -32,12 +32,13 @@ class CalendarTest{
 		System.out.println("\n일 월 화 수 목 금 토");
 		
 		for(int i=0; i<5; i++) {
-			for(int j=0; j<7; j++) {
-				if( (j+(i*7)+1) <= sfDay[1]+sfDay[0]) {
-					if(j+(i*7)+1-sfDay[0] <= 0) {
+			for(int j=1; j<8; j++) {
+//				System.out.print(j+(i*7)+1 + " ");
+				if( (j+(i*7)) <= sfDay[1]+sfDay[0]) {
+					if(j+(i*7)-sfDay[0] <= 0) {
 						System.out.print("   ");
 					}
-					else	System.out.print(String.format("%2d", (j+(i*7)+1)-(sfDay[0])) + " ");
+					else	System.out.print(String.format("%2d", (j+(i*7))-(sfDay[0])) + " ");
 				}
 			}
 			System.out.println();
