@@ -60,5 +60,7 @@ public class CalendarMain {
 		
 		CalendarTest ct = new CalendarTest(year, month);
 		ct.display();
+		
+		scan.close();
 	}
 }
