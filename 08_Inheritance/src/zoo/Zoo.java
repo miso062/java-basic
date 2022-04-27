@@ -16,3 +16,9 @@ public class Zoo {
 		System.out.println("멋진 사자");
 	}
 }
+
+class SafariTest extends Zoo {
+	protected void giraffe() {
+		System.out.println("하하");
+	}
+}

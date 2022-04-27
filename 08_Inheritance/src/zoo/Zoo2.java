@@ -6,5 +6,6 @@ public class Zoo2 {
 		z.tiger();
 		z.giraffe();
 		z.elehant();
+//		z.lion(); 		private라서 접근 불가능
 	}
 }
