@@ -193,12 +193,8 @@ public class SungJukService{
 			Comparator<SungJukDTO> com = new Comparator<SungJukDTO>() {
 				@Override
 				public int compare(SungJukDTO s1, SungJukDTO s2) {
-					if(s1.getAvg() > s2.getAvg())
-						return -1;
-					else if(s1.getAvg() == s2.getAvg())
-						return 0;
-					else
-						return 1;
+					// 조건연산자 사용
+					return s1.getAvg() > s2.getAvg() ? -1 : 1;
 				}
 			};
 			this.printArticle();
