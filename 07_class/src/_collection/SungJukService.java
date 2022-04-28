@@ -186,15 +186,7 @@ public class SungJukService{
 		if(num == 1) {
 			System.out.println("\n[이름으로 정렬합니다.]\n");
 			Collections.sort(list);
-			int i=0;
-			System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
-			for(SungJukDTO data: list) {
-				System.out.println(data);
-				i++;
-			}
-			if(i==0) {
-				System.out.println("\n[리스트가 비어있습니다.]");
-			}
+			this.printArticle();
 		}
 		else if(num == 2) {
 			System.out.println("\n[이름으로 정렬합니다.]\n");
@@ -209,16 +201,7 @@ public class SungJukService{
 						return 1;
 				}
 			};
-			Collections.sort(list, com);
-			int i=0;
-			System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
-			for(SungJukDTO data: list) {
-				System.out.println(data);
-				i++;
-			}
-			if(i==0) {
-				System.out.println("\n[리스트가 비어있습니다.]");
-			}
+			this.printArticle();
 			
 		}
 		else {
