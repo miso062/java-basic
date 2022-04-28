@@ -2,12 +2,13 @@ package _interface;
 
 public class ExaminationDTO {
 	private String name, dap;
-	private char[] ox = new char[5];
+	private char[] ox;
 	private int score = 0;
 	
 	public ExaminationDTO(String name, String dap) {
 		this.name = name;
 		this.dap = dap;
+		ox = new char[ExaminationService.ANSWER.length()];
 	}
 	
 	public String getName() {
