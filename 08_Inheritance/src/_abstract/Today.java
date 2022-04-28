@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Today {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws ParseException {
 //		# 1 - get date
 		Date data = new Date();
