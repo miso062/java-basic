@@ -1,6 +1,6 @@
 package _collection;
 
-public class SungJukDTO{
+public class SungJukDTO implements Comparable<SungJukDTO>{
 	
 	private String name;
 	private int no, kor, eng, math, tot;
@@ -60,8 +60,15 @@ public class SungJukDTO{
 	
 	public String toString() {
 //		return name;
+		getTot();
+		getAvg();
 		return no + "\t" + name + "\t" + 
 				kor + "\t" + eng + "\t" + math + "\t" + 
 				tot + "\t" + String.format("%.2f", avg) + "\t";
+	}
+	
+	@Override
+	public int compareTo(SungJukDTO o) {
+		return this.name.compareTo(o.name);
 	}
 }

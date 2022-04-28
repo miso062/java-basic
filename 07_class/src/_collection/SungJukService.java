@@ -1,6 +1,8 @@
 package _collection;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -24,19 +26,21 @@ public class SungJukService{
 			System.out.println("*      2. 출력             *");
 			System.out.println("*      3. 검색             *");
 			System.out.println("*      4. 삭제             *");
-			System.out.println("*      5. 종료             *");
+			System.out.println("*      5. 정렬             *");
+			System.out.println("*      6. 종료             *");
 			System.out.println("****************************");
 			System.out.print("     - 번호 선택: ");
 			num = scan.nextInt();
 			
 			System.out.println();
 			
-			if(num==5) 			break;
+			if(num==6) 			break;
 			else if(num==1) 	insertArticle();
 			else if(num==2) 	printArticle();
 			else if(num==3) 	searchArticle();
 			else if(num==4) 	deleteArticle();
-			else 				System.out.println("[1~5번 중에 입력하세요!]");
+			else if(num==5) 	sortArticle();
+			else 				System.out.println("[1~6번 중에 입력하세요!]");
 			
 		}
 		scan.close();
@@ -167,5 +171,60 @@ public class SungJukService{
 //		}
 		
 	}
-
+	
+	public void	sortArticle() {
+		Scanner scan = new Scanner(System.in);
+		int num; 
+		System.out.println("****************************");
+		System.out.println("*      1. 이름으로 정렬    *");
+		System.out.println("*      2. 총점으로 정렬    *");
+		System.out.println("*      3. 이전 메뉴        *");
+		System.out.println("****************************");
+		System.out.print("     - 번호 선택: ");
+		num = scan.nextInt();
+		
+		if(num == 1) {
+			System.out.println("\n[이름으로 정렬합니다.]\n");
+			Collections.sort(list);
+			int i=0;
+			System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
+			for(SungJukDTO data: list) {
+				System.out.println(data);
+				i++;
+			}
+			if(i==0) {
+				System.out.println("\n[리스트가 비어있습니다.]");
+			}
+		}
+		else if(num == 2) {
+			System.out.println("\n[이름으로 정렬합니다.]\n");
+			Comparator<SungJukDTO> com = new Comparator<SungJukDTO>() {
+				@Override
+				public int compare(SungJukDTO s1, SungJukDTO s2) {
+					if(s1.getAvg() > s2.getAvg())
+						return -1;
+					else if(s1.getAvg() == s2.getAvg())
+						return 0;
+					else
+						return 1;
+				}
+			};
+			Collections.sort(list, com);
+			int i=0;
+			System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
+			for(SungJukDTO data: list) {
+				System.out.println(data);
+				i++;
+			}
+			if(i==0) {
+				System.out.println("\n[리스트가 비어있습니다.]");
+			}
+			
+		}
+		else {
+			System.out.println("\n[이전 메뉴로 돌아갑니다.]");
+			return;
+		}
+		
+	}
 }
