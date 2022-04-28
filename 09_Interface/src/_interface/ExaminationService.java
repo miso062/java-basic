@@ -5,4 +5,5 @@ public interface ExaminationService {
 	
 	public void insertArticle();
 	public void printArticle();
+	public void menu();
 }
