@@ -1,4 +1,4 @@
-package zoo;
+package _zoo;
 
 public class Zoo {
 	

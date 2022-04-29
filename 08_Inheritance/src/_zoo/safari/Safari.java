@@ -1,6 +1,6 @@
-package zoo.safari;
+package _zoo.safari;
 
-import zoo.Zoo;
+import _zoo.Zoo;
 
 class SafariTest extends Zoo {
 //	protected void giraffe() {
