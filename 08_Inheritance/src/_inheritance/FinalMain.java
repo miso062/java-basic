@@ -1,4 +1,4 @@
-package inheritance;
+package _inheritance;
 
 class Final {
 	public final String FRUIT = "사과";
