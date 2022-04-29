@@ -43,13 +43,18 @@ public class AbstractMain{
 		};
 		
 		AbstractTest at = new AbstractTest() {
+			// 내부 메소드가 추상 메소드 -> 무조건 Override
 			public void setName(String name) {
 				this.name = name;
 			}
 		};
 		
-		
 		in.aa();
 		in.bb();
+		
+		AbstractExam aa = new AbstractExam() {
+//			내부에 추상 메소드가 없기 때문에 재구현은 
+//			그냥 하고 싶으면 하고 안하고 싶으면 안해도 됨
+		};
 	}
 }
