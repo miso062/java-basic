@@ -1,4 +1,4 @@
-package inheritance;
+package _inheritance;
 
 public class Child extends Super{
 	
