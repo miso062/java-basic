@@ -1,6 +1,6 @@
-package apple;
+package _apple;
 
-import zoo.Zoo;
+import _zoo.Zoo;
 
 public class Apple {
 	public static void main(String[] args) {
