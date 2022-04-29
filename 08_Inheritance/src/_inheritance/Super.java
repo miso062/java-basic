@@ -1,4 +1,4 @@
-package inheritance;
+package _inheritance;
 
 public class Super {
 	protected double weight, height;
