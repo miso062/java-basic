@@ -1,4 +1,4 @@
-package inheritance;
+package _inheritance;
 
 class AA {
 	protected int a = 3;
