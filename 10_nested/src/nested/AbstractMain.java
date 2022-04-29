@@ -53,7 +53,7 @@ public class AbstractMain{
 		in.bb();
 		
 		AbstractExam aa = new AbstractExam() {
-//			내부에 추상 메소드가 없기 때문에 재구현은 
+//			내부에 추상 메소드가 없기 때문에 재구현(Override)은 
 //			그냥 하고 싶으면 하고 안하고 싶으면 안해도 됨
 		};
 	}
