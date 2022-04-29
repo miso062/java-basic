@@ -1,4 +1,4 @@
-package inheritance;
+package _inheritance;
 
 class Test extends Object {
 	int a, b;
