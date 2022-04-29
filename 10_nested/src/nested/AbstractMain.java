@@ -41,6 +41,14 @@ public class AbstractMain{
 			public void aa() {	System.out.println("aa");	}
 			public void bb() {	System.out.println("bb");	}
 		};
+		
+		AbstractTest at = new AbstractTest() {
+			public void setName(String name) {
+				this.name = name;
+			}
+		};
+		
+		
 		in.aa();
 		in.bb();
 	}
