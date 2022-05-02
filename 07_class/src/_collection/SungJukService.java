@@ -189,7 +189,7 @@ public class SungJukService{
 			this.printArticle();
 		}
 		else if(num == 2) {
-			System.out.println("\n[이름으로 정렬합니다.]\n");
+			System.out.println("\n[총점으로 정렬합니다.]\n");
 			Comparator<SungJukDTO> com = new Comparator<SungJukDTO>() {
 				@Override
 				public int compare(SungJukDTO s1, SungJukDTO s2) {
