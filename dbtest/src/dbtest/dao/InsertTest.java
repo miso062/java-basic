@@ -66,10 +66,9 @@ public class InsertTest {
 			e.printStackTrace();
 		} finally {
 			try {
-				if(pstmt != null)
-					pstmt.close();
-				if(conn != null)
-					conn.close();
+				if(pstmt != null)	pstmt.close();
+				if(conn != null)	conn.close();
+				if(scan != null) 	scan.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
