@@ -112,12 +112,7 @@ public class StudentDAOImpl implements StudentDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(pstmt != null)	pstmt.close();
-				if(conn != null)	conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeDB();
 		}
 	}
 	
@@ -140,15 +135,12 @@ public class StudentDAOImpl implements StudentDAO{
 			if(num==1) {
 				System.out.print("\n > 검색할 이름 입력: ");
 				name = scan.next();
-				sql = "SELECT name, value, code FROM student WHERE name LIKE ?";
+				sql = "SELECT * FROM student WHERE name LIKE ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, "%"+name+"%");
 				rs = pstmt.executeQuery();
-				
-				
-				
 				while(rs.next()) {
-					System.out.print("이름: " + rs.getString("name") + "\t");
+					System.out.print("\n이름: " + rs.getString("name") + "\t");
 					
 					int code = rs.getInt("code");
 					System.out.println();
@@ -177,12 +169,7 @@ public class StudentDAOImpl implements StudentDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(pstmt != null)	pstmt.close();
-				if(conn != null)	conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeDB();
 		}
 	}
 	
@@ -204,14 +191,19 @@ public class StudentDAOImpl implements StudentDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(pstmt != null)	pstmt.close();
-				if(conn != null)	conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			closeDB();
 		}
 		
+	}
+	
+	public void closeDB() {
+		try {
+			if(rs != null)		rs.close();
+			if(pstmt != null)	pstmt.close();
+			if(conn != null)	conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
 
