@@ -13,9 +13,9 @@ public class CloudTest {
 	private PreparedStatement pstmt;
 	
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@db20220715003434_high?TNS_ADMIN=./src/Wallet";
-	private String userName = "gese";
-	private String password = "oracleGST1";
+	private String url = "jdbc:oracle:thin:@gese_high?TNS_ADMIN=./src/Wallet_GESE";
+	private String userName = "admin";
+	private String password = "oraclegese-T1";
 	
 	// Constructor
 	public CloudTest() {
